@@ -13,28 +13,28 @@ Programa:
 #include <SD.h>             // SD
 
 /* - - - - - - LM35 - - - - - -*/
-const int LM35 = 0;
+const int LM35 = A0;
 float tempC, tempMaxC = 0, tempMinC = 0;
 /* - - - - - - - - - - - - - - */
 
 /* - - - - -RTC DS1307 - - - - */
 
 //RTC DS1307 ligado as portas A1(SDA) e A2(SCL) do Arduino.
-DS1307 rtc(A1, A2);
+DS1307 rtc(A2, A1);
 String hora;
 /* - - - - - - - - - - - - - - */
 
 /* - - - - - - SD - - - - - - -*/
 File meuArquivo;
-const int chipSelect = 4;
+const int chipSelect = 10;
 int flag = 0;
 /* - - - - - - - - - - - - - - */
 
 /* - - - - - LCD 16x2 - - - - -*/
 
-//LCD 16x2 ligado as portas 10(RS), 9(E), 8(D4), 7(D5), 6(D6) 5(D7),  do Arduino.
-LiquidCrystal lcd(10, 9, 8, 7, 6, 5);
-const int luzDeFundo = 3;
+//LCD 16x2 ligado as portas: 9(RS), 8(E), 6(D4), 5(D5), 4(D6) 3(D7),  do Arduino.
+LiquidCrystal lcd(9, 8, 6, 5, 4, 3);
+const int luzDeFundo = 7;
 
 byte temperatura[8] = {
  B00100,
